@@ -26,12 +26,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumber5"
+        app:layout_constraintStart_toStartOf="@+id/etChoice1Grade"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.19" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/etGradeMath"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:ems="10"
@@ -44,16 +44,20 @@
         app:layout_constraintVertical_bias="0.067" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/etGradeEng"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="number"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="128dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19" />
 
     <EditText
-        android:id="@+id/editTextNumber3"
+        android:id="@+id/etUnitsMath"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:ems="10"
@@ -66,13 +70,17 @@
         app:layout_constraintVertical_bias="0.067" />
 
     <EditText
-        android:id="@+id/editTextNumber4"
+        android:id="@+id/etUnitsEng"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="number"
-        tools:layout_editor_absoluteX="175dp"
-        tools:layout_editor_absoluteY="128dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19" />
 
     <TextView
         android:id="@+id/textView13"
@@ -87,102 +95,143 @@
         app:layout_constraintVertical_bias="0.365" />
 
     <EditText
-        android:id="@+id/editTextNumber5"
+        android:id="@+id/etChoice1Grade"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="number"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="341dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.508" />
 
     <EditText
-        android:id="@+id/editTextNumber6"
+        android:id="@+id/etChoice2Grade"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="number"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="432dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.643" />
 
     <EditText
-        android:id="@+id/editTextNumber7"
+        android:id="@+id/etChoice3Grade"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="number"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="517dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77" />
 
     <EditText
-        android:id="@+id/editTextNumber8"
+        android:id="@+id/etChoice1Units"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="number"
-        tools:layout_editor_absoluteX="175dp"
-        tools:layout_editor_absoluteY="341dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.508" />
 
     <EditText
-        android:id="@+id/editTextNumber9"
+        android:id="@+id/etChoice2Units"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="number"
-        tools:layout_editor_absoluteX="175dp"
-        tools:layout_editor_absoluteY="432dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.643" />
 
     <EditText
-        android:id="@+id/editTextNumber10"
+        android:id="@+id/etChoice3Units"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="number"
-        tools:layout_editor_absoluteX="175dp"
-        tools:layout_editor_absoluteY="517dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/etChoice1"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
-        tools:layout_editor_absoluteX="270dp"
-        tools:layout_editor_absoluteY="341dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.508" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/etChoice2"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
-        tools:layout_editor_absoluteX="270dp"
-        tools:layout_editor_absoluteY="432dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.643" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/etChoice3"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
-        tools:layout_editor_absoluteX="270dp"
-        tools:layout_editor_absoluteY="517dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/etChoice1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnNext"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="612dp" />
+        android:text="next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.898" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnPrev"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="253dp"
-        tools:layout_editor_absoluteY="612dp" />
+        android:text="prev"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.797"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.898" />
 </androidx.constraintlayout.widget.ConstraintLayout>
