@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Bagrot"
         tools:targetApi="31">
         <activity
+            android:name=".bagrot3"
+            android:exported="false" />
+        <activity
             android:name=".bagrot2"
             android:exported="false" />
         <activity
