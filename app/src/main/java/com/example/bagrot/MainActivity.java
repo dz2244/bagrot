@@ -3,6 +3,7 @@ package com.example.bagrot;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         etHistory = findViewById(R.id.etHistory);
         etEzrahot = findViewById(R.id.etEzrahot);
         etTanah = findViewById(R.id.etTanah);
+    }
 
+    public void clickedNext1(View view) {
     }
 }

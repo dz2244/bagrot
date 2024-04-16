@@ -212,9 +212,10 @@
         app:layout_constraintVertical_bias="0.77" />
 
     <Button
-        android:id="@+id/btnNext"
+        android:id="@+id/btnNext2"
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:onClick="clickedNext2"
         android:text="next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -224,9 +225,10 @@
         app:layout_constraintVertical_bias="0.898" />
 
     <Button
-        android:id="@+id/btnPrev"
+        android:id="@+id/btnPrev2"
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:onClick="clickedPrev2"
         android:text="prev"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

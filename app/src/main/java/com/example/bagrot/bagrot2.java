@@ -3,6 +3,7 @@ package com.example.bagrot;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -31,7 +32,13 @@ public class bagrot2 extends AppCompatActivity {
         etChoice2Grade = findViewById(R.id.etChoice2Grade);
         etChoice3Grade = findViewById(R.id.etChoice3Grade);
 
-        btnNext = findViewById(R.id.btnNext);
-        btnPrev = findViewById(R.id.btnPrev);
+        btnNext = findViewById(R.id.btnNext2);
+        btnPrev = findViewById(R.id.btnPrev2);
+    }
+
+    public void clickedNext2(View view) {
+    }
+
+    public void clickedPrev2(View view) {
     }
 }
