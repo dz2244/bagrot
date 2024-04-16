@@ -2,6 +2,7 @@ package com.example.bagrot;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -21,5 +22,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickedNext1(View view) {
+        Intent gi = new Intent(this, bagrot2.class);
+        startActivity(gi);
     }
 }

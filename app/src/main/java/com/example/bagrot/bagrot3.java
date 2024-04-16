@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class bagrot3 extends AppCompatActivity {
-    EditText grades, sumOfGrades,bestSum;
+    TextView grades, sumOfGrades,bestSum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

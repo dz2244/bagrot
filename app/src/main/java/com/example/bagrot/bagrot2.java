@@ -37,6 +37,7 @@ public class bagrot2 extends AppCompatActivity {
     }
 
     public void clickedNext2(View view) {
+
     }
 
     public void clickedPrev2(View view) {
