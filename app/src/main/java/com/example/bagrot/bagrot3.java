@@ -1,7 +1,5 @@
 package com.example.bagrot;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -17,7 +15,6 @@ public class bagrot3 extends AppCompatActivity {
         grades = findViewById(R.id.grades);
         sumOfGrades = findViewById(R.id.sumOfGrades);
         bestSum = findViewById(R.id.bestSum);
-
     }
 
     public void clickedPrev3(View view) {

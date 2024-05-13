@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class bagrot2 extends AppCompatActivity {
-    EditText etUnitsMath, etUnitsEng, etGradeMath, etGradeEng, etChoice1 , etChoice2 , etChoice3 , etChoice1Units , etChoice2Units , etChoice3Units ,etChoice1Grade ,etChoice2Grade ,etChoice3Grade ;
+    EditText etUnitsMath, etUnitsEng, etGradeMath, etGradeEng, etChoice1 , etChoice2 , etChoice3 , switchSecondMegama,switchThirdMegama ,etChoice1Grade ,etChoice2Grade ,etChoice3Grade ;
     Button btnNext , btnPrev;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,10 @@ public class bagrot2 extends AppCompatActivity {
         etChoice2 = findViewById(R.id.etChoice2);
         etChoice3 = findViewById(R.id.etChoice3);
 
-        etChoice1Units= findViewById(R.id.etChoice1Units);
-        etChoice2Units = findViewById(R.id.etChoice1Units);
-        etChoice3Units = findViewById(R.id.etChoice3Units);
+        switchSecondMegama = findViewById(R.id.switchSecondMegama);
+        switchThirdMegama = findViewById(R.id.switchThirdMegama);
+
+
 
         etChoice1Grade = findViewById(R.id.etChoice1Grade);
         etChoice2Grade = findViewById(R.id.etChoice2Grade);
