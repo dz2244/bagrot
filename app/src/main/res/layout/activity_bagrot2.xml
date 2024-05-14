@@ -210,27 +210,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.508" />
 
-    <Switch
-        android:id="@+id/switchSecondMegama"
+    <ToggleButton
+        android:id="@+id/tbFirst"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639" />
-
-    <Switch
-        android:id="@+id/switchThirdMegama"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:textOff="more"
-        android:textOn="5+ &quot;&quot;"
+        android:textOff="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.643" />
+
+    <ToggleButton
+        android:id="@+id/tbSecond"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="ToggleButton"
+        android:textOff="+"
+        android:textOn="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.77" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
