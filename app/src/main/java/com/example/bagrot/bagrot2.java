@@ -8,14 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.ToggleButton;
 
 public class bagrot2 extends AppCompatActivity {
     EditText etUnitsMath, etUnitsEng, etGradeMath, etGradeEng, etChoice1 , etChoice2 , etChoice3 ,etChoice1Grade ,etChoice2Grade ,etChoice3Grade ;
     Button btnNext , btnPrev;
     Intent si = new Intent();
 
-    Switch switchSecondMegama, switchThirdMegama;
-    int gLashon , gSafrot,gHistory ,gEzrahot ,gTanah;
+    ToggleButton tbFirst , tbSecond;
+    int gLashon , gSafrot , gHistory , gEzrahot , gTanah;
     double sum1;
     String sUserName;
     @Override
@@ -23,6 +24,8 @@ public class bagrot2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bagrot2);
         initViews();
+        si = getIntent();
+
     }
     private void initViews() {
         etUnitsMath = findViewById(R.id.etUnitsMath);
@@ -35,8 +38,8 @@ public class bagrot2 extends AppCompatActivity {
         etChoice2 = findViewById(R.id.etChoice2);
         etChoice3 = findViewById(R.id.etChoice3);
 
-        switchSecondMegama = findViewById(R.id.switchSecondMegama);
-        switchThirdMegama = findViewById(R.id.switchThirdMegama);
+        tbSecond = findViewById(R.id.tbSecond);
+        tbFirst = findViewById(R.id.tbFirst);
 
         etChoice1Grade = findViewById(R.id.etChoice1Grade);
         etChoice2Grade = findViewById(R.id.etChoice2Grade);
