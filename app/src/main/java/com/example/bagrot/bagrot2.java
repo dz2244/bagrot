@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class bagrot2 extends AppCompatActivity {
@@ -16,15 +16,15 @@ public class bagrot2 extends AppCompatActivity {
     Intent si = new Intent();
 
     ToggleButton tbFirst , tbSecond;
-    int gLashon , gSafrot , gHistory , gEzrahot , gTanah;
+    int gLashon , gSafrot , gHistory , gEzrahot , gTanah,lMath,lEnglish,gMath,gEnglish,gFirstMegama ,gSecondMegama ,gThirdMegama;
+
     double sum1;
-    String sUserName;
+    String sUserName, nameFirstMegama,nameSecondMegama,nameThirdMegama,slMath,slEnglish,sgMath,sgEnglish,sgFirstMegama ,sgSecondMegama ,sgThirdMegama;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bagrot2);
         initViews();
-        si = getIntent();
 
     }
     private void initViews() {
@@ -63,6 +63,44 @@ public class bagrot2 extends AppCompatActivity {
         si.putExtra("Tanah",gTanah);
         si.putExtra("sum1",sum1);
         si.putExtra("userName",sUserName);
+
+        slMath = etUnitsMath.getText().toString();
+        slEnglish = etUnitsEng.getText().toString();
+        sgMath = etGradeMath.getText().toString();
+        sgEnglish = etGradeEng.getText().toString();
+        sgFirstMegama = etChoice1Grade.getText().toString();
+        sgSecondMegama = etChoice2Grade.getText().toString();
+        sgThirdMegama = etChoice3Grade.getText().toString();
+        nameFirstMegama = etChoice1.getText().toString();
+        nameSecondMegama = etChoice2.getText().toString();
+        nameThirdMegama = etChoice3.getText().toString();
+
+        if((!slMath.isEmpty())||(!slEnglish.isEmpty())||(!sgMath.isEmpty())||(!sgEnglish.isEmpty())||(!sgFirstMegama.isEmpty())||(!sgSecondMegama.isEmpty())||(!sgThirdMegama.isEmpty())||(!nameFirstMegama.isEmpty())||(!nameSecondMegama.isEmpty())||(!nameThirdMegama.isEmpty()))
+        {
+            lMath = Integer.valueOf(slMath);
+            lEnglish = Integer.valueOf(slEnglish);
+            gMath = Integer.valueOf(sgMath);
+            gEnglish = Integer.valueOf(sgEnglish);
+            gFirstMegama = Integer.valueOf(sgFirstMegama);
+            gSecondMegama = Integer.valueOf(sgSecondMegama);
+            gThirdMegama = Integer.valueOf(sgThirdMegama);
+
+            if ((lMath < 6) && (lMath > 2) || (lEnglish < 6) && (lEnglish > 2)  ||  !(gMath > 100) || !(gEnglish > 100) || !(gFirstMegama > 100) || !(gSecondMegama > 100) || !(gThirdMegama > 100))
+            {
+                gFirstMegama += 20;
+                if(lMath == 4) gMath += 15;
+                else if (lMath == 5) gMath += 30;
+                if(lEnglish == 4) gEnglish += 15;
+                else if (lEnglish == 5) gEnglish += 30;
+
+                if(tbFirst.isChecked()) gSecondMegama += 20 ;
+                if(tbSecond.isChecked()) gThirdMegama += 20 ;
+                sum1 += (lMath*gMath) + (lEnglish*gEnglish) + (2*gHistory)+ (2*gSafrot) + (2*gTanah);
+
+            }
+            else
+                Toast.makeText(this, "enter the real grade♥", Toast.LENGTH_SHORT).show();
+        }
         setResult(Activity.RESULT_OK,si);
         finish();
     }

@@ -66,8 +66,6 @@ public class MainActivity extends AppCompatActivity {
         gi.putExtra("Tanah",gTanah);
         gi.putExtra("sum1",sum1);
         gi.putExtra("userName",sUserName);
-
-
         super.startActivityForResult(gi,REQUEST_CODE);
 
     }
