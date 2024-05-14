@@ -1,5 +1,7 @@
 package com.example.bagrot;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -18,5 +20,7 @@ public class bagrot3 extends AppCompatActivity {
     }
 
     public void clickedPrev3(View view) {
+        Intent pi = new Intent(this, bagrot2.class);
+        startActivity(pi);
     }
 }
