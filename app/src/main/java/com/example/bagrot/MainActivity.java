@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         sEzrahot = etEzrahot.getText().toString();
         sTanah = etTanah.getText().toString();
 
-        if((!sUserName.isEmpty())||(!sLashon.isEmpty())||(!sSafrot.isEmpty())||(!sHistory.isEmpty())||(!sEzrahot.isEmpty())||(!sTanah.isEmpty()))
+        if((!sUserName.isEmpty())&&(!sLashon.isEmpty())&&(!sSafrot.isEmpty())&&(!sHistory.isEmpty())&&(!sEzrahot.isEmpty())&&(!sTanah.isEmpty()))
         {
             gLashon = Integer.valueOf(sLashon);
             gSafrot = Integer.valueOf(sSafrot);
@@ -48,26 +48,25 @@ public class MainActivity extends AppCompatActivity {
             gEzrahot = Integer.valueOf(sEzrahot);
             gTanah = Integer.valueOf(sTanah);
 
-            if (!(gLashon > 100) || !(gSafrot > 100) || !(gHistory > 100) || !(gEzrahot > 100) || !(gTanah > 100))
+            if ((gLashon < 100) && (gSafrot < 100) && (gHistory < 100) && (gEzrahot < 100) && (gTanah < 100))
             {
                 sum1 = (2*gEzrahot) + (2*gLashon) + (2*gHistory)+ (2*gSafrot) + (2*gTanah);
+
+                Intent gi = new Intent(this, bagrot2.class);
+                gi.putExtra("lashon",gLashon);
+                gi.putExtra("Safrot",gSafrot);
+                gi.putExtra("History",gHistory);
+                gi.putExtra("Ezrahot",gEzrahot);
+                gi.putExtra("Tanah",gTanah);
+                gi.putExtra("sum1",sum1);
+                gi.putExtra("userName",sUserName);
+                super.startActivityForResult(gi,REQUEST_CODE);
             }
             else
                 Toast.makeText(this, "enter the real grade♥", Toast.LENGTH_SHORT).show();
         }
         else
             Toast.makeText(this, "you need to fill all of the grades(and the name)", Toast.LENGTH_SHORT).show();
-
-        Intent gi = new Intent(this, bagrot2.class);
-        gi.putExtra("lashon",gLashon);
-        gi.putExtra("Safrot",gSafrot);
-        gi.putExtra("History",gHistory);
-        gi.putExtra("Ezrahot",gEzrahot);
-        gi.putExtra("Tanah",gTanah);
-        gi.putExtra("sum1",sum1);
-        gi.putExtra("userName",sUserName);
-        super.startActivityForResult(gi,REQUEST_CODE);
-
     }
     @Override
     protected void onActivityResult(int source, int result, Intent data_back){

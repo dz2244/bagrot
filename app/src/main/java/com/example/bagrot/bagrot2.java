@@ -25,6 +25,8 @@ public class bagrot2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bagrot2);
         initViews();
+        etChoice3.setVisibility(View.INVISIBLE);
+        etChoice3Grade.setVisibility(View.INVISIBLE);
 
     }
     private void initViews() {
@@ -75,7 +77,7 @@ public class bagrot2 extends AppCompatActivity {
         nameSecondMegama = etChoice2.getText().toString();
         nameThirdMegama = etChoice3.getText().toString();
 
-        if((!slMath.isEmpty())||(!slEnglish.isEmpty())||(!sgMath.isEmpty())||(!sgEnglish.isEmpty())||(!sgFirstMegama.isEmpty())||(!sgSecondMegama.isEmpty())||(!sgThirdMegama.isEmpty())||(!nameFirstMegama.isEmpty())||(!nameSecondMegama.isEmpty())||(!nameThirdMegama.isEmpty()))
+        if((!slMath.isEmpty())&&(!slEnglish.isEmpty())&&(!sgMath.isEmpty())&&(!sgEnglish.isEmpty())&&(!sgFirstMegama.isEmpty())&&(!sgSecondMegama.isEmpty())&&(!sgThirdMegama.isEmpty())&&(!nameFirstMegama.isEmpty())&&(!nameSecondMegama.isEmpty())&&(!nameThirdMegama.isEmpty()))
         {
             lMath = Integer.valueOf(slMath);
             lEnglish = Integer.valueOf(slEnglish);
@@ -90,18 +92,43 @@ public class bagrot2 extends AppCompatActivity {
                 gFirstMegama += 20;
                 if(lMath == 4) gMath += 15;
                 else if (lMath == 5) gMath += 30;
+
                 if(lEnglish == 4) gEnglish += 15;
                 else if (lEnglish == 5) gEnglish += 30;
 
                 if(tbFirst.isChecked()) gSecondMegama += 20 ;
                 if(tbSecond.isChecked()) gThirdMegama += 20 ;
-                sum1 += (lMath*gMath) + (lEnglish*gEnglish) + (2*gHistory)+ (2*gSafrot) + (2*gTanah);
 
+                setResult(Activity.RESULT_OK,si);
+                finish();
             }
             else
                 Toast.makeText(this, "enter the real grade♥", Toast.LENGTH_SHORT).show();
         }
-        setResult(Activity.RESULT_OK,si);
-        finish();
+        else
+            Toast.makeText(this, "plz fill all fields", Toast.LENGTH_SHORT).show();
+    }
+
+    public void clickedTbSecond(View view) {
+        if (!tbFirst.isChecked() && tbSecond.isChecked())
+        {
+            tbFirst.setChecked(true);
+        }
+        else if (tbFirst.isChecked() && tbSecond.isChecked())
+        {
+            etChoice3.setVisibility(View.INVISIBLE);
+            etChoice3Grade.setVisibility(View.INVISIBLE);
+        }
+        else if (tbFirst.isChecked() && !tbSecond.isChecked())
+        {
+            etChoice3.setVisibility(View.VISIBLE);
+            etChoice3Grade.setVisibility(View.VISIBLE);
+        }
+        else if ((!tbFirst.isChecked()) && (!tbSecond.isChecked()))
+        {
+            etChoice3.setVisibility(View.VISIBLE);
+            etChoice3Grade.setVisibility(View.VISIBLE);
+        }
+
     }
 }
