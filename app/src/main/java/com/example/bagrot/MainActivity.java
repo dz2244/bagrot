@@ -11,11 +11,11 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText etLashon,etSafrot,etHistory,etEzrahot,etTanah,etName;
-    int gLashon , gSafrot,gHistory ,gEzrahot ,gTanah;
+    int gLashon , gSafrot,gHistory ,gEzrahot ,gTanah ;
     final int REQUEST_CODE = 369;
     double sum1;
-    String sUserName ,sLashon, sSafrot,sHistory ,sEzrahot ,sTanah;
-
+    String sUserName ,sLashon, sSafrot,sHistory ,sEzrahot ,sTanah , slMath = "",slEnglish = "",sgMath = "",sgEnglish = "", nameFirstMegama = "",nameSecondMegama = "",nameThirdMegama = "" ,sgFirstMegama = "",sgSecondMegama = "",sgThirdMegama= "";
+    boolean bTb1Checked,bTb2checked;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
         etTanah = findViewById(R.id.etTanah);
     }
 
-    public void clickedNext1(View view) {
+    public void clickedNext1(View view)
+    {
         sUserName = etName.getText().toString();
         sLashon = etLashon.getText().toString();
         sSafrot = etSafrot.getText().toString();
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
             if ((gLashon < 100) && (gSafrot < 100) && (gHistory < 100) && (gEzrahot < 100) && (gTanah < 100))
             {
+
                 sum1 = (2*gEzrahot) + (2*gLashon) + (2*gHistory)+ (2*gSafrot) + (2*gTanah);
 
                 Intent gi = new Intent(this, bagrot2.class);
@@ -60,6 +62,21 @@ public class MainActivity extends AppCompatActivity {
                 gi.putExtra("Tanah",gTanah);
                 gi.putExtra("sum1",sum1);
                 gi.putExtra("userName",sUserName);
+                gi.putExtra("lMath", slMath);
+                gi.putExtra("lEnglish", slEnglish);
+                gi.putExtra("gMath", sgMath);
+                gi.putExtra("gEnglish", sgEnglish);
+                gi.putExtra("gFirstMegama", sgFirstMegama);
+
+                if (bTb1Checked)
+                    gi.putExtra("gSecondMegama", sgSecondMegama);
+                if (bTb2checked)
+                    gi.putExtra("gThirdMegama", sgThirdMegama);
+                gi.putExtra("nameFirstMegama",nameFirstMegama);
+                gi.putExtra("nameSecondMegama",nameSecondMegama);
+                gi.putExtra("nameThirdMegama",nameThirdMegama);
+                gi.putExtra("bTb1Checked",bTb1Checked);
+                gi.putExtra("bTb2checked",bTb2checked);
                 super.startActivityForResult(gi,REQUEST_CODE);
             }
             else
@@ -68,17 +85,24 @@ public class MainActivity extends AppCompatActivity {
         else
             Toast.makeText(this, "you need to fill all of the grades(and the name)", Toast.LENGTH_SHORT).show();
     }
+
     @Override
     protected void onActivityResult(int source, int result, Intent data_back){
         super.onActivityResult(source, result, data_back);
         if(data_back != null )
         {
-            gLashon = data_back.getIntExtra("lashon",1);
-            gSafrot = data_back.getIntExtra("Safrot",1);
-            gHistory = data_back.getIntExtra("History",1);
-            gEzrahot = data_back.getIntExtra("Ezrahot",1);
-            gTanah = data_back.getIntExtra("Tanah",1);
-            sUserName = data_back.getStringExtra("username");
+            slMath = data_back.getStringExtra("lMath");
+            slEnglish = data_back.getStringExtra("lEnglish");
+            sgMath = data_back.getStringExtra("gMath");
+            sgEnglish = data_back.getStringExtra("gEnglish");
+            sgFirstMegama = data_back.getStringExtra("gFirstMegama");
+            sgSecondMegama = data_back.getStringExtra("gSecondMegama");
+            sgThirdMegama = data_back.getStringExtra("gThirdMegama");
+            nameFirstMegama = data_back.getStringExtra("nameFirstMegama");
+            nameSecondMegama = data_back.getStringExtra("nameSecondMegama");
+            nameThirdMegama = data_back.getStringExtra("nameThirdMegama");
+            bTb1Checked = data_back.getBooleanExtra("bTb1Checked",false);
+            bTb2checked = data_back.getBooleanExtra("bTb2checked",false);
         }
     }
 }

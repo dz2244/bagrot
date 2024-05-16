@@ -1,6 +1,5 @@
 package com.example.bagrot;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +12,8 @@ import android.widget.ToggleButton;
 public class bagrot2 extends AppCompatActivity {
     EditText etUnitsMath, etUnitsEng, etGradeMath, etGradeEng, etChoice1 , etChoice2 , etChoice3 ,etChoice1Grade ,etChoice2Grade ,etChoice3Grade ;
     Button btnNext , btnPrev;
-    Intent si = new Intent();
+    Intent si ;
+    boolean bTb1Checked,bTb2checked;
 
     ToggleButton tbFirst , tbSecond;
     int gLashon , gSafrot , gHistory , gEzrahot , gTanah,lMath,lEnglish,gMath,gEnglish,gFirstMegama ,gSecondMegama ,gThirdMegama;
@@ -25,8 +25,33 @@ public class bagrot2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bagrot2);
         initViews();
+        si = getIntent();
+
         etChoice3.setVisibility(View.INVISIBLE);
         etChoice3Grade.setVisibility(View.INVISIBLE);
+
+        if(bTb2checked){
+            etChoice3.setVisibility(View.VISIBLE);
+            etChoice3Grade.setVisibility(View.VISIBLE);
+        }
+
+        etUnitsMath.setText(si.getStringExtra("lMath"));
+        etUnitsEng.setText(si.getStringExtra("lEnglish"));
+        etGradeMath.setText(si.getStringExtra("gMath"));
+        etGradeEng.setText(si.getStringExtra("gEnglish"));
+
+        etChoice1Grade.setText(si.getStringExtra("gFirstMegama"));
+        etChoice2Grade.setText(si.getStringExtra("gSecondMegama"));
+        etChoice3Grade.setText(si.getStringExtra("gThirdMegama"));
+
+        etChoice1.setText(si.getStringExtra("nameFirstMegama"));
+        etChoice2.setText(si.getStringExtra("nameSecondMegama"));
+        etChoice3.setText(si.getStringExtra("nameThirdMegama"));
+
+        if(bTb1Checked)
+            tbFirst.setChecked(true);
+        if(bTb2checked)
+            tbSecond.setChecked(true);
 
     }
     private void initViews() {
@@ -53,82 +78,88 @@ public class bagrot2 extends AppCompatActivity {
 
     public void clickedNext2(View view) {
         Intent ai = new Intent(this, bagrot3.class);
+        ai.putExtra("lashon",gLashon);
+        ai.putExtra("Safrot",gSafrot);
+        ai.putExtra("History",gHistory);
+
+        ai.putExtra("Ezrahot",gEzrahot);
+        ai.putExtra("Tanah",gTanah);
+        ai.putExtra("sum1",sum1);
+        ai.putExtra("userName",sUserName);
         startActivity(ai);
 
     }
 
     public void clickedPrev2(View view) {
-        si.putExtra("lashon",gLashon);
-        si.putExtra("Safrot",gSafrot);
-        si.putExtra("History",gHistory);
-        si.putExtra("Ezrahot",gEzrahot);
-        si.putExtra("Tanah",gTanah);
-        si.putExtra("sum1",sum1);
-        si.putExtra("userName",sUserName);
-
         slMath = etUnitsMath.getText().toString();
         slEnglish = etUnitsEng.getText().toString();
         sgMath = etGradeMath.getText().toString();
         sgEnglish = etGradeEng.getText().toString();
         sgFirstMegama = etChoice1Grade.getText().toString();
         sgSecondMegama = etChoice2Grade.getText().toString();
+
         sgThirdMegama = etChoice3Grade.getText().toString();
         nameFirstMegama = etChoice1.getText().toString();
         nameSecondMegama = etChoice2.getText().toString();
         nameThirdMegama = etChoice3.getText().toString();
 
-        if((!slMath.isEmpty())&&(!slEnglish.isEmpty())&&(!sgMath.isEmpty())&&(!sgEnglish.isEmpty())&&(!sgFirstMegama.isEmpty())&&(!sgSecondMegama.isEmpty())&&(!sgThirdMegama.isEmpty())&&(!nameFirstMegama.isEmpty())&&(!nameSecondMegama.isEmpty())&&(!nameThirdMegama.isEmpty()))
-        {
-            lMath = Integer.valueOf(slMath);
-            lEnglish = Integer.valueOf(slEnglish);
-            gMath = Integer.valueOf(sgMath);
-            gEnglish = Integer.valueOf(sgEnglish);
-            gFirstMegama = Integer.valueOf(sgFirstMegama);
-            gSecondMegama = Integer.valueOf(sgSecondMegama);
-            gThirdMegama = Integer.valueOf(sgThirdMegama);
+        si.putExtra("lMath",slMath);
+        si.putExtra("lEnglish",slEnglish);
+        si.putExtra("gMath",sgMath);
+        si.putExtra("gEnglish",sgEnglish);
+        si.putExtra("gFirstMegama",sgFirstMegama);
 
-            if ((lMath < 6) && (lMath > 2) || (lEnglish < 6) && (lEnglish > 2)  ||  !(gMath > 100) || !(gEnglish > 100) || !(gFirstMegama > 100) || !(gSecondMegama > 100) || !(gThirdMegama > 100))
-            {
-                gFirstMegama += 20;
-                if(lMath == 4) gMath += 15;
-                else if (lMath == 5) gMath += 30;
+        if(tbFirst.isChecked())
+            si.putExtra("gSecondMegama",sgSecondMegama);
+        if(tbSecond.isChecked())
+            si.putExtra("gThirdMegama",sgThirdMegama);
 
-                if(lEnglish == 4) gEnglish += 15;
-                else if (lEnglish == 5) gEnglish += 30;
+        si.putExtra("nameFirstMegama",nameFirstMegama);
+        si.putExtra("nameSecondMegama",nameSecondMegama);
+        si.putExtra("nameThirdMegama",nameThirdMegama);
+        si.putExtra("bTb1Checked",bTb1Checked);
+        si.putExtra("bTb2checked",bTb2checked);
 
-                if(tbFirst.isChecked()) gSecondMegama += 20 ;
-                if(tbSecond.isChecked()) gThirdMegama += 20 ;
-
-                setResult(Activity.RESULT_OK,si);
-                finish();
-            }
-            else
-                Toast.makeText(this, "enter the real grade♥", Toast.LENGTH_SHORT).show();
-        }
-        else
-            Toast.makeText(this, "plz fill all fields", Toast.LENGTH_SHORT).show();
+        setResult(Activity.RESULT_OK,si);
+        finish();
     }
 
+
     public void clickedTbSecond(View view) {
-        if (!tbFirst.isChecked() && tbSecond.isChecked())
+        if(tbSecond.isChecked())
         {
-            tbFirst.setChecked(true);
+            bTb2checked = true;
+            bTb1Checked = true;
         }
-        else if (tbFirst.isChecked() && tbSecond.isChecked())
+        else
+            bTb2checked = false;
+        if (!tbSecond.isChecked())
         {
             etChoice3.setVisibility(View.INVISIBLE);
             etChoice3Grade.setVisibility(View.INVISIBLE);
         }
-        else if (tbFirst.isChecked() && !tbSecond.isChecked())
-        {
-            etChoice3.setVisibility(View.VISIBLE);
-            etChoice3Grade.setVisibility(View.VISIBLE);
-        }
-        else if ((!tbFirst.isChecked()) && (!tbSecond.isChecked()))
+        else if(tbSecond.isChecked())
         {
             etChoice3.setVisibility(View.VISIBLE);
             etChoice3Grade.setVisibility(View.VISIBLE);
         }
 
+        if (!tbFirst.isChecked() && tbSecond.isChecked())
+        {
+            tbFirst.setChecked(true);
+        }
+    }
+
+    public void clickedTbFirst(View view) {
+        if(tbFirst.isChecked())
+            bTb1Checked = true;
+        else
+            bTb1Checked = false;
+        if(tbFirst.isChecked() && tbSecond.isChecked())
+        {
+            etChoice3.setVisibility(View.INVISIBLE);
+            etChoice3Grade.setVisibility(View.INVISIBLE);
+            tbSecond.setChecked(false);
+        }
     }
 }

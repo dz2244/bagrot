@@ -215,6 +215,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:clickable="false"
+        android:onClick="clickedTbFirst"
         android:textOff="1"
         android:textOn="5"
         app:layout_constraintBottom_toBottomOf="parent"
