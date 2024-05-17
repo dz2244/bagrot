@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             gEzrahot = Integer.valueOf(sEzrahot);
             gTanah = Integer.valueOf(sTanah);
 
-            if ((gLashon < 100) && (gSafrot < 100) && (gHistory < 100) && (gEzrahot < 100) && (gTanah < 100))
+            if ((gLashon <= 100) && (gSafrot <= 100) && (gHistory <= 100) && (gEzrahot <= 100) && (gTanah <= 100))
             {
 
                 sum1 = (2*gEzrahot) + (2*gLashon) + (2*gHistory)+ (2*gSafrot) + (2*gTanah);
@@ -60,21 +60,24 @@ public class MainActivity extends AppCompatActivity {
                 gi.putExtra("History",gHistory);
                 gi.putExtra("Ezrahot",gEzrahot);
                 gi.putExtra("Tanah",gTanah);
+
                 gi.putExtra("sum1",sum1);
                 gi.putExtra("userName",sUserName);
+
                 gi.putExtra("lMath", slMath);
                 gi.putExtra("lEnglish", slEnglish);
                 gi.putExtra("gMath", sgMath);
                 gi.putExtra("gEnglish", sgEnglish);
                 gi.putExtra("gFirstMegama", sgFirstMegama);
-
                 if (bTb1Checked)
                     gi.putExtra("gSecondMegama", sgSecondMegama);
                 if (bTb2checked)
                     gi.putExtra("gThirdMegama", sgThirdMegama);
+
                 gi.putExtra("nameFirstMegama",nameFirstMegama);
                 gi.putExtra("nameSecondMegama",nameSecondMegama);
                 gi.putExtra("nameThirdMegama",nameThirdMegama);
+
                 gi.putExtra("bTb1Checked",bTb1Checked);
                 gi.putExtra("bTb2checked",bTb2checked);
                 super.startActivityForResult(gi,REQUEST_CODE);
