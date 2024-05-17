@@ -19,9 +19,9 @@ public class bagrot2 extends AppCompatActivity {
     boolean bTb1Checked, bTb2checked;
 
     ToggleButton tbFirst, tbSecond;
-    int gLashon, gSafrot, gHistory, gEzrahot, gTanah;
+    int gLashon, gSafrot, gHistory, gEzrahot, gTanah, gMath, gEnglish, gFirstMegama, gSecondMegama, gThirdMegama;
     double sum1;
-    String sUserName = "", nameFirstMegama = "", nameSecondMegama = "", nameThirdMegama = "", slMath = "", slEnglish = "", sgMath = "", sgEnglish= "", sgFirstMegama = "", sgSecondMegama = "", sgThirdMegama = "";
+    String sUserName, nameFirstMegama, nameSecondMegama, nameThirdMegama, slMath, slEnglish, sgMath, sgEnglish, sgFirstMegama, sgSecondMegama, sgThirdMegama;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,8 +108,10 @@ public class bagrot2 extends AppCompatActivity {
             ai.putExtra("gMath", sgMath);
             ai.putExtra("gEnglish", sgEnglish);
             ai.putExtra("gFirstMegama", sgFirstMegama);
-            ai.putExtra("gSecondMegama", sgSecondMegama);
-            ai.putExtra("gThirdMegama", sgThirdMegama);
+            if (bTb1Checked)
+                ai.putExtra("gSecondMegama", sgSecondMegama);
+            if (bTb2checked)
+                ai.putExtra("gThirdMegama", sgThirdMegama);
             ai.putExtra("nameFirstMegama", nameFirstMegama);
             ai.putExtra("nameSecondMegama", nameSecondMegama);
             ai.putExtra("nameThirdMegama", nameThirdMegama);

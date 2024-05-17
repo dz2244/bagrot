@@ -13,10 +13,11 @@ public class bagrot3 extends AppCompatActivity {
 
     TextView grades, sumOfGrades, bestSum;
     Intent si;
-    String slMath, slEnglish, sgMath, sgEnglish, sgFirstMegama, sgSecondMegama, sgThirdMegama, nameFirstMegama, nameSecondMegama, nameThirdMegama, sUserName;
+    String slMath, slEnglish, sgMath, sgEnglish, sgFirstMegama, sgSecondMegama, sgThirdMegama, nameFirstMegama, nameSecondMegama, nameThirdMegama;
+    boolean bTb1Checked, bTb2checked;
     int gLashon, gSafrot, gHistory, gEzrahot, gTanah;
     double sum1;
-    boolean bTb1Checked, bTb2checked;
+    String sUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +36,16 @@ public class bagrot3 extends AppCompatActivity {
         nameFirstMegama = si.getStringExtra("nameFirstMegama");
         nameSecondMegama = si.getStringExtra("nameSecondMegama");
         nameThirdMegama = si.getStringExtra("nameThirdMegama");
-        sUserName = si.getStringExtra("userName");
+        bTb1Checked = si.getBooleanExtra("bTb1Checked", false);
+        bTb2checked = si.getBooleanExtra("bTb2checked", false);
         gLashon = si.getIntExtra("lashon", 0);
         gSafrot = si.getIntExtra("Safrot", 0);
         gHistory = si.getIntExtra("History", 0);
         gEzrahot = si.getIntExtra("Ezrahot", 0);
         gTanah = si.getIntExtra("Tanah", 0);
         sum1 = si.getDoubleExtra("sum1", 0);
-        bTb1Checked = si.getBooleanExtra("bTb1Checked", false);
-        bTb2checked = si.getBooleanExtra("bTb2checked", false);
+        sUserName = si.getStringExtra("userName");
 
-        // Log the received values
         Log.d("bagrot3", "Received data: " +
                 "lashon=" + gLashon +
                 ", Safrot=" + gSafrot +
@@ -67,10 +67,7 @@ public class bagrot3 extends AppCompatActivity {
                 ", bTb1Checked=" + bTb1Checked +
                 ", bTb2checked=" + bTb2checked);
 
-        grades.setText("Math: " + slMath + "\nEnglish: " + slEnglish + "\nFirst Major: " + sgFirstMegama +
-                "\nSecond Major: " + sgSecondMegama + "\nThird Major: " + sgThirdMegama);
-        sumOfGrades.setText(String.valueOf(sum1));
-        bestSum.setText("Best Sum Calculation Here"); // Placeholder, update with actual calculation if needed
+        grades.setText(sum1 + "");
     }
 
     private void initViews() {
