@@ -1,5 +1,4 @@
 package com.example.bagrot;
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
@@ -9,19 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
 public class bagrot2 extends AppCompatActivity {
     EditText etUnitsMath, etUnitsEng, etGradeMath, etGradeEng, etChoice1, etChoice2, etChoice3, etChoice1Grade, etChoice2Grade, etChoice3Grade;
     Button btnNext, btnPrev;
     Intent si;
     boolean bTb1Checked, bTb2checked;
-
     ToggleButton tbFirst, tbSecond;
     int gLashon, gSafrot, gHistory, gEzrahot, gTanah, lMath, lEnglish, gMath, gEnglish, gFirstMegama, gSecondMegama, gThirdMegama;
-
     double sum1;
     String sUserName, nameFirstMegama, nameSecondMegama, nameThirdMegama, slMath, slEnglish, sgMath, sgEnglish, sgFirstMegama, sgSecondMegama, sgThirdMegama;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +27,8 @@ public class bagrot2 extends AppCompatActivity {
         etChoice3.setVisibility(View.INVISIBLE);
         etChoice3Grade.setVisibility(View.INVISIBLE);
 
-        if (bTb2checked) {
+        if (bTb2checked)
+        {
             etChoice3.setVisibility(View.VISIBLE);
             etChoice3Grade.setVisibility(View.VISIBLE);
         }
@@ -55,7 +51,6 @@ public class bagrot2 extends AppCompatActivity {
         if (bTb2checked)
             tbSecond.setChecked(true);
     }
-
     private void initViews() {
         etUnitsMath = findViewById(R.id.etUnitsMath);
         etUnitsEng = findViewById(R.id.etUnitsEng);
@@ -72,7 +67,6 @@ public class bagrot2 extends AppCompatActivity {
         btnNext = findViewById(R.id.btnNext2);
         btnPrev = findViewById(R.id.btnPrev2);
     }
-
     public void clickedNext2(View view) {
         if (validateInputs()) {
             saveData();
@@ -81,13 +75,11 @@ public class bagrot2 extends AppCompatActivity {
             startActivity(ai);
         }
     }
-
     public void clickedPrev2(View view) {
         saveData();
         setResult(Activity.RESULT_OK, si);
         finish();
     }
-
     public void clickedTbSecond(View view) {
         if (tbSecond.isChecked()) {
             bTb2checked = true;
@@ -107,7 +99,6 @@ public class bagrot2 extends AppCompatActivity {
             tbFirst.setChecked(true);
         }
     }
-
     public void clickedTbFirst(View view) {
         if (tbFirst.isChecked())
             bTb1Checked = true;
@@ -119,7 +110,6 @@ public class bagrot2 extends AppCompatActivity {
             tbSecond.setChecked(false);
         }
     }
-
     private boolean validateInputs() {
         String unitsMath = etUnitsMath.getText().toString();
         String unitsEng = etUnitsEng.getText().toString();
@@ -166,9 +156,6 @@ public class bagrot2 extends AppCompatActivity {
         }
         return true;
     }
-
-
-
     private void saveData() {
         slMath = etUnitsMath.getText().toString();
         slEnglish = etUnitsEng.getText().toString();
@@ -186,10 +173,12 @@ public class bagrot2 extends AppCompatActivity {
         si.putExtra("gMath", sgMath);
         si.putExtra("gEnglish", sgEnglish);
         si.putExtra("gFirstMegama", sgFirstMegama);
+
         if (tbFirst.isChecked())
             si.putExtra("gSecondMegama", sgSecondMegama);
         if (tbSecond.isChecked())
             si.putExtra("gThirdMegama", sgThirdMegama);
+
         si.putExtra("nameFirstMegama", nameFirstMegama);
         si.putExtra("nameSecondMegama", nameSecondMegama);
         si.putExtra("nameThirdMegama", nameThirdMegama);

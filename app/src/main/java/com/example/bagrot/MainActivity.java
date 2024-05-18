@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initViews();
     }
-
     private void initViews() {
         etName = findViewById(R.id.etName);
         etLashon = findViewById(R.id.etLashon);
@@ -31,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         etEzrahot = findViewById(R.id.etEzrahot);
         etTanah = findViewById(R.id.etTanah);
     }
-
     public void clickedNext1(View view)
     {
         sUserName = etName.getText().toString();
@@ -51,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
             if ((gLashon <= 100) && (gSafrot <= 100) && (gHistory <= 100) && (gEzrahot <= 100) && (gTanah <= 100))
             {
-
                 sum1 = (2*gEzrahot) + (2*gLashon) + (2*gHistory)+ (2*gSafrot) + (2*gTanah);
 
                 Intent gi = new Intent(this, bagrot2.class);
@@ -63,12 +60,12 @@ public class MainActivity extends AppCompatActivity {
 
                 gi.putExtra("sum1",sum1);
                 gi.putExtra("userName",sUserName);
-
                 gi.putExtra("lMath", slMath);
                 gi.putExtra("lEnglish", slEnglish);
                 gi.putExtra("gMath", sgMath);
                 gi.putExtra("gEnglish", sgEnglish);
                 gi.putExtra("gFirstMegama", sgFirstMegama);
+
                 if (bTb1Checked)
                     gi.putExtra("gSecondMegama", sgSecondMegama);
                 if (bTb2checked)
@@ -77,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
                 gi.putExtra("nameFirstMegama",nameFirstMegama);
                 gi.putExtra("nameSecondMegama",nameSecondMegama);
                 gi.putExtra("nameThirdMegama",nameThirdMegama);
-
                 gi.putExtra("bTb1Checked",bTb1Checked);
                 gi.putExtra("bTb2checked",bTb2checked);
                 super.startActivityForResult(gi,REQUEST_CODE);
@@ -88,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
         else
             Toast.makeText(this, "you need to fill all of the grades(and the name)", Toast.LENGTH_SHORT).show();
     }
-
     @Override
     protected void onActivityResult(int source, int result, Intent data_back){
         super.onActivityResult(source, result, data_back);

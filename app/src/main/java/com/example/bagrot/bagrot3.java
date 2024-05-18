@@ -1,25 +1,19 @@
 package com.example.bagrot;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
 public class bagrot3 extends AppCompatActivity {
-
     TextView grades, sumOfGrades, bestSum;
     Intent si;
     String slMath, slEnglish, sgMath, sgEnglish, sgFirstMegama, sgSecondMegama, sgThirdMegama, nameFirstMegama, nameSecondMegama, nameThirdMegama;
     boolean bTb1Checked, bTb2checked;
     int gLashon, gSafrot, gHistory, gEzrahot, gTanah , lMath, gMath, lEnglish, gEnglish, lThird, gThird, gFirstMegama, gSecondMegama, gThirdMegama;
-    ;
     double sum1;
     String sUserName;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +41,6 @@ public class bagrot3 extends AppCompatActivity {
         sum1 = si.getDoubleExtra("sum1", 0);
         sUserName = si.getStringExtra("userName");
         displayGrades();
-
     }
 
     private void initViews() {
@@ -72,7 +65,6 @@ public class bagrot3 extends AppCompatActivity {
 
         grades.setText(gradesBuilder.toString());
     }
-
 
     public void clickedPrev3(View view) {
         Intent backIntent = new Intent(this, bagrot2.class);
