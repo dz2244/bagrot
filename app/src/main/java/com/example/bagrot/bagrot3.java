@@ -15,7 +15,8 @@ public class bagrot3 extends AppCompatActivity {
     Intent si;
     String slMath, slEnglish, sgMath, sgEnglish, sgFirstMegama, sgSecondMegama, sgThirdMegama, nameFirstMegama, nameSecondMegama, nameThirdMegama;
     boolean bTb1Checked, bTb2checked;
-    int gLashon, gSafrot, gHistory, gEzrahot, gTanah;
+    int gLashon, gSafrot, gHistory, gEzrahot, gTanah , lMath, gMath, lEnglish, gEnglish, lThird, gThird, gFirstMegama, gSecondMegama, gThirdMegama;
+    ;
     double sum1;
     String sUserName;
 
@@ -45,29 +46,8 @@ public class bagrot3 extends AppCompatActivity {
         gTanah = si.getIntExtra("Tanah", 0);
         sum1 = si.getDoubleExtra("sum1", 0);
         sUserName = si.getStringExtra("userName");
+        displayGrades();
 
-        Log.d("bagrot3", "Received data: " +
-                "lashon=" + gLashon +
-                ", Safrot=" + gSafrot +
-                ", History=" + gHistory +
-                ", Ezrahot=" + gEzrahot +
-                ", Tanah=" + gTanah +
-                ", sum1=" + sum1 +
-                ", userName=" + sUserName +
-                ", lMath=" + slMath +
-                ", lEnglish=" + slEnglish +
-                ", gMath=" + sgMath +
-                ", gEnglish=" + sgEnglish +
-                ", gFirstMegama=" + sgFirstMegama +
-                ", gSecondMegama=" + sgSecondMegama +
-                ", gThirdMegama=" + sgThirdMegama +
-                ", nameFirstMegama=" + nameFirstMegama +
-                ", nameSecondMegama=" + nameSecondMegama +
-                ", nameThirdMegama=" + nameThirdMegama +
-                ", bTb1Checked=" + bTb1Checked +
-                ", bTb2checked=" + bTb2checked);
-
-        grades.setText(sum1 + "");
     }
 
     private void initViews() {
@@ -75,6 +55,24 @@ public class bagrot3 extends AppCompatActivity {
         sumOfGrades = findViewById(R.id.sumOfGrades);
         bestSum = findViewById(R.id.bestSum);
     }
+    private void displayGrades() {
+        StringBuilder gradesBuilder = new StringBuilder();
+        lMath = Integer.valueOf(slMath);
+        lEnglish = Integer.valueOf(slEnglish);
+        gMath = Integer.valueOf(sgMath);
+        gEnglish = Integer.valueOf(sgEnglish);
+
+        gFirstMegama = Integer.valueOf(sgFirstMegama);
+        gSecondMegama = Integer.valueOf(sgSecondMegama);
+        gThirdMegama = Integer.valueOf(sgThirdMegama);
+
+        gradesBuilder.append(nameFirstMegama).append(":\t").append("Level ").append(lMath).append("\tGrade: ").append(gMath).append("\tGrade with bonus: ").append(gFirstMegama).append("\n");
+        gradesBuilder.append(nameSecondMegama).append(":\t").append("Level ").append(lEnglish).append("\tGrade: ").append(gEnglish).append("\tGrade with bonus: ").append(gSecondMegama).append("\n");
+        gradesBuilder.append(nameThirdMegama).append(":\t").append("Level ").append(lThird).append("\tGrade: ").append(gThird).append("\tGrade with bonus: ").append(gThirdMegama).append("\n");
+
+        grades.setText(gradesBuilder.toString());
+    }
+
 
     public void clickedPrev3(View view) {
         Intent backIntent = new Intent(this, bagrot2.class);
