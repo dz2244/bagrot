@@ -40,6 +40,7 @@ public class bagrot3 extends AppCompatActivity {
         gTanah = si.getIntExtra("Tanah", 0);
         sum1 = si.getDoubleExtra("sum1", 0);
         sUserName = si.getStringExtra("userName");
+
         displayGrades();
     }
 
@@ -59,9 +60,20 @@ public class bagrot3 extends AppCompatActivity {
         gSecondMegama = Integer.valueOf(sgSecondMegama);
         gThirdMegama = Integer.valueOf(sgThirdMegama);
 
-        gradesBuilder.append(nameFirstMegama).append(":\t").append("Level ").append(lMath).append("\tGrade: ").append(gMath).append("\tGrade with bonus: ").append(gFirstMegama).append("\n");
-        gradesBuilder.append(nameSecondMegama).append(":\t").append("Level ").append(lEnglish).append("\tGrade: ").append(gEnglish).append("\tGrade with bonus: ").append(gSecondMegama).append("\n");
-        gradesBuilder.append(nameThirdMegama).append(":\t").append("Level ").append(lThird).append("\tGrade: ").append(gThird).append("\tGrade with bonus: ").append(gThirdMegama).append("\n");
+
+
+        gradesBuilder.append("lashon:").append(":\t").append("Level ").append("2").append("\tGrade: ").append(gLashon).append("\tbonus: ").append(gLashon).append("\n");
+        gradesBuilder.append("safrot:").append(":\t").append("Level ").append("2").append("\tGrade: ").append(gSafrot).append("\tbonus: ").append(gSafrot).append("\n");
+        gradesBuilder.append("history:").append(":\t").append("Level ").append("2").append("\tGrade: ").append(gHistory).append("\tbonus: ").append(gHistory).append("\n");
+        gradesBuilder.append("ezrahot:").append(":\t").append("Level ").append("2").append("\tGrade: ").append(gEzrahot).append("\tbonus: ").append(gEzrahot).append("\n");
+        gradesBuilder.append("tanah:").append(":\t").append("Level ").append("2").append("\tGrade: ").append(gTanah).append("\tbonus: ").append(gTanah).append("\n");
+
+        gradesBuilder.append("math").append(":\t").append("Level ").append(lMath).append("\tGrade: ").append(gMath).append("\tbonus: ").append(gSecondMegama).append("\n");
+        gradesBuilder.append("english:").append(":\t").append("Level ").append(lEnglish).append("\tGrade: ").append(gEnglish).append("\tbonus: ").append(gThirdMegama).append("\n");
+
+        gradesBuilder.append(nameFirstMegama).append(":\t").append("Level ").append("5").append("\tGrade: ").append(gFirstMegama).append("\tbonus: ").append(gFirstMegama).append("\n");
+        gradesBuilder.append(nameSecondMegama).append(":\t").append("Level ").append(lEnglish).append("\tGrade: ").append(gSecondMegama).append("\tbonus: ").append(gSecondMegama).append("\n");
+        gradesBuilder.append(nameThirdMegama).append(":\t").append("Level ").append(lThird).append("\tGrade: ").append(gThirdMegama).append("\tbonus: ").append(gThirdMegama).append("\n");
 
         grades.setText(gradesBuilder.toString());
     }

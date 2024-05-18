@@ -123,8 +123,7 @@ public class bagrot2 extends AppCompatActivity {
         String choice3 = etChoice3.getText().toString();
 
         if (unitsMath.isEmpty() || unitsEng.isEmpty() || gradeMath.isEmpty() ||
-                gradeEng.isEmpty() || choice1Grade.isEmpty() || choice2Grade.isEmpty() ||
-                choice3Grade.isEmpty() || choice1.isEmpty() || choice2.isEmpty() || choice3.isEmpty()) {
+                gradeEng.isEmpty() || choice1Grade.isEmpty() || choice2Grade.isEmpty() || choice3Grade.isEmpty() || choice1.isEmpty() || choice2.isEmpty() || choice3.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return false;
         }
