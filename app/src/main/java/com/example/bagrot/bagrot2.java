@@ -101,6 +101,7 @@ public class bagrot2 extends AppCompatActivity {
             etChoice3Grade.setVisibility(View.INVISIBLE);
         }
         else {
+            tbFirst.setChecked(true);
             etChoice3.setVisibility(View.VISIBLE);
             etChoice3Grade.setVisibility(View.VISIBLE);
         }
