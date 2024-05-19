@@ -27,10 +27,18 @@ public class bagrot2 extends AppCompatActivity {
         etChoice3.setVisibility(View.INVISIBLE);
         etChoice3Grade.setVisibility(View.INVISIBLE);
 
+        bTb1Checked = si.getBooleanExtra("bTb1Checked",true);
+        bTb2checked = si.getBooleanExtra("bTb2Checked",true);
+
         if (bTb2checked)
         {
             etChoice3.setVisibility(View.VISIBLE);
             etChoice3Grade.setVisibility(View.VISIBLE);
+            tbSecond.setChecked(true);
+            tbFirst.setChecked(true);
+        }
+        else if (bTb1Checked) {
+            tbFirst.setChecked(true);
         }
 
         etUnitsMath.setText(si.getStringExtra("lMath"));
@@ -46,10 +54,9 @@ public class bagrot2 extends AppCompatActivity {
         etChoice2.setText(si.getStringExtra("nameSecondMegama"));
         etChoice3.setText(si.getStringExtra("nameThirdMegama"));
 
-        if (bTb1Checked)
-            tbFirst.setChecked(true);
-        if (bTb2checked)
-            tbSecond.setChecked(true);
+        bTb1Checked = si.getBooleanExtra("bTb1Checked",true);
+        bTb2checked = si.getBooleanExtra("bTb2Checked",true);
+
     }
     private void initViews() {
         etUnitsMath = findViewById(R.id.etUnitsMath);
@@ -80,82 +87,25 @@ public class bagrot2 extends AppCompatActivity {
         setResult(Activity.RESULT_OK, si);
         finish();
     }
-    public void clickedTbSecond(View view) {
-        if (tbSecond.isChecked()) {
-            bTb2checked = true;
-            bTb1Checked = true;
-        } else {
-            bTb2checked = false;
+    public void clickedTbFirst(View view) {
+        if(tbSecond.isChecked())
+        {
+            tbFirst.setChecked(true);
+            Toast.makeText(this, "u cannot have 11 points", Toast.LENGTH_SHORT).show();
         }
-        if (!tbSecond.isChecked()) {
+    }
+    public void clickedTbSecond(View view) {
+        if(!tbSecond.isChecked())
+        {
             etChoice3.setVisibility(View.INVISIBLE);
             etChoice3Grade.setVisibility(View.INVISIBLE);
-        } else if (tbSecond.isChecked()) {
+        }
+        else {
             etChoice3.setVisibility(View.VISIBLE);
             etChoice3Grade.setVisibility(View.VISIBLE);
         }
-
-        if (!tbFirst.isChecked() && tbSecond.isChecked()) {
-            tbFirst.setChecked(true);
-        }
-    }
-    public void clickedTbFirst(View view) {
-        if (tbFirst.isChecked())
-            bTb1Checked = true;
-        else
-            bTb1Checked = false;
-        if (tbFirst.isChecked() && tbSecond.isChecked()) {
-            etChoice3.setVisibility(View.INVISIBLE);
-            etChoice3Grade.setVisibility(View.INVISIBLE);
-            tbSecond.setChecked(false);
-        }
     }
     private boolean validateInputs() {
-        String unitsMath = etUnitsMath.getText().toString();
-        String unitsEng = etUnitsEng.getText().toString();
-        String gradeMath = etGradeMath.getText().toString();
-        String gradeEng = etGradeEng.getText().toString();
-        String choice1Grade = etChoice1Grade.getText().toString();
-        String choice2Grade = etChoice2Grade.getText().toString();
-        String choice3Grade = etChoice3Grade.getText().toString();
-        String choice1 = etChoice1.getText().toString();
-        String choice2 = etChoice2.getText().toString();
-        String choice3 = etChoice3.getText().toString();
-
-        if (unitsMath.isEmpty() || unitsEng.isEmpty() || gradeMath.isEmpty() ||
-                gradeEng.isEmpty() || choice1Grade.isEmpty() || choice2Grade.isEmpty() || choice3Grade.isEmpty() || choice1.isEmpty() || choice2.isEmpty() || choice3.isEmpty()) {
-            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
-        int gMath = Integer.parseInt(gradeMath);
-        int gEnglish = Integer.parseInt(gradeEng);
-        int gFirstMegama = Integer.parseInt(choice1Grade);
-        int gSecondMegama = bTb1Checked ? Integer.parseInt(choice2Grade) : -1;
-        int gThirdMegama = bTb2checked ? Integer.parseInt(choice3Grade) : -1;
-
-        if (gMath < 0 || gMath > 100 || gEnglish < 0 || gEnglish > 100 ||
-                gFirstMegama < 0 || gFirstMegama > 100 ||
-                (gSecondMegama != -1 && (gSecondMegama < 0 || gSecondMegama > 100)) || (gThirdMegama != -1 && (gThirdMegama < 0 || gThirdMegama > 100))) {
-            Toast.makeText(this, "Please enter realistic grades (0-100)", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
-        int lMath = Integer.parseInt(unitsMath);
-        int lEnglish = Integer.parseInt(unitsEng);
-
-        if (lMath < 3 || lMath > 5 || lEnglish < 3 || lEnglish > 5) {
-            Toast.makeText(this, "Please enter levels between 3 and 5", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
-        if (!choice1.matches("[a-zA-Z\\s]+") || !choice2.matches("[a-zA-Z\\s]+") || !choice3.matches("[a-zA-Z\\s]+")) {
-            Toast.makeText(this, "Please enter only letters and spaces for choices", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        return true;
-    }
-    private void saveData() {
         slMath = etUnitsMath.getText().toString();
         slEnglish = etUnitsEng.getText().toString();
         sgMath = etGradeMath.getText().toString();
@@ -167,20 +117,76 @@ public class bagrot2 extends AppCompatActivity {
         nameSecondMegama = etChoice2.getText().toString();
         nameThirdMegama = etChoice3.getText().toString();
 
+        if (slMath.isEmpty() || slEnglish.isEmpty() || sgMath.isEmpty() || sgEnglish.isEmpty() || sgFirstMegama.isEmpty() || sgSecondMegama.isEmpty() || sgThirdMegama.isEmpty() || nameFirstMegama.isEmpty() || nameSecondMegama.isEmpty() || nameThirdMegama.isEmpty()) {
+            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        gMath = Integer.parseInt(sgMath);
+        gEnglish = Integer.parseInt(sgEnglish);
+        gFirstMegama = Integer.parseInt(sgFirstMegama);
+        gSecondMegama = bTb1Checked ? Integer.parseInt(sgSecondMegama) : -1;
+        gThirdMegama = bTb2checked ? Integer.parseInt(sgThirdMegama) : -1;
+
+        if (gMath < 0 || gMath > 100 || gEnglish < 0 || gEnglish > 100 ||
+                gFirstMegama < 0 || gFirstMegama > 100 ||
+                (gSecondMegama != -1 && (gSecondMegama < 0 || gSecondMegama > 100)) || (gThirdMegama != -1 && (gThirdMegama < 0 || gThirdMegama > 100))) {
+            Toast.makeText(this, "Please enter realistic grades (0-100)", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        lMath = Integer.parseInt(sgMath);
+        lEnglish = Integer.parseInt(sgEnglish);
+
+        if (lMath < 3 || lMath > 5 || lEnglish < 3 || lEnglish > 5) {
+            Toast.makeText(this, "Please enter levels between 3 and 5", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (!nameFirstMegama.matches("[a-zA-Z\\s]+") || !nameSecondMegama.matches("[a-zA-Z\\s]+") || !nameThirdMegama.matches("[a-zA-Z\\s]+")) {
+            Toast.makeText(this, "Please enter only letters and spaces for choices", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+    private void saveData() {
+        slMath = etUnitsMath.getText().toString();
+        slEnglish = etUnitsEng.getText().toString();
+        sgMath = etGradeMath.getText().toString();
+        sgEnglish = etGradeEng.getText().toString();
+
+        sgFirstMegama = etChoice1Grade.getText().toString();
+        sgSecondMegama = etChoice2Grade.getText().toString();
+        sgThirdMegama = etChoice3Grade.getText().toString();
+
+        nameFirstMegama = etChoice1.getText().toString();
+        nameSecondMegama = etChoice2.getText().toString();
+        nameThirdMegama = etChoice3.getText().toString();
+        if(tbSecond.isChecked())
+        {
+            bTb1Checked = true;
+            bTb2checked = true;
+        }
+        else if(tbFirst.isChecked())
+        {
+            bTb1Checked = true;
+            bTb2checked = false;
+        }
+
         si.putExtra("lMath", slMath);
         si.putExtra("lEnglish", slEnglish);
         si.putExtra("gMath", sgMath);
         si.putExtra("gEnglish", sgEnglish);
         si.putExtra("gFirstMegama", sgFirstMegama);
 
-        if (tbFirst.isChecked())
-            si.putExtra("gSecondMegama", sgSecondMegama);
+        si.putExtra("gSecondMegama", sgSecondMegama);
         if (tbSecond.isChecked())
             si.putExtra("gThirdMegama", sgThirdMegama);
 
         si.putExtra("nameFirstMegama", nameFirstMegama);
         si.putExtra("nameSecondMegama", nameSecondMegama);
         si.putExtra("nameThirdMegama", nameThirdMegama);
+
         si.putExtra("bTb1Checked", bTb1Checked);
         si.putExtra("bTb2checked", bTb2checked);
     }

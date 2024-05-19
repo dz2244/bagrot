@@ -60,20 +60,21 @@ public class MainActivity extends AppCompatActivity {
 
                 gi.putExtra("sum1",sum1);
                 gi.putExtra("userName",sUserName);
+
                 gi.putExtra("lMath", slMath);
                 gi.putExtra("lEnglish", slEnglish);
                 gi.putExtra("gMath", sgMath);
                 gi.putExtra("gEnglish", sgEnglish);
-                gi.putExtra("gFirstMegama", sgFirstMegama);
 
-                if (bTb1Checked)
-                    gi.putExtra("gSecondMegama", sgSecondMegama);
+                gi.putExtra("gFirstMegama", sgFirstMegama);
+                gi.putExtra("gSecondMegama", sgSecondMegama);
                 if (bTb2checked)
                     gi.putExtra("gThirdMegama", sgThirdMegama);
 
                 gi.putExtra("nameFirstMegama",nameFirstMegama);
                 gi.putExtra("nameSecondMegama",nameSecondMegama);
                 gi.putExtra("nameThirdMegama",nameThirdMegama);
+
                 gi.putExtra("bTb1Checked",bTb1Checked);
                 gi.putExtra("bTb2checked",bTb2checked);
                 super.startActivityForResult(gi,REQUEST_CODE);
@@ -99,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
             nameFirstMegama = data_back.getStringExtra("nameFirstMegama");
             nameSecondMegama = data_back.getStringExtra("nameSecondMegama");
             nameThirdMegama = data_back.getStringExtra("nameThirdMegama");
-            bTb1Checked = data_back.getBooleanExtra("bTb1Checked",false);
-            bTb2checked = data_back.getBooleanExtra("bTb2checked",false);
+            bTb1Checked = data_back.getBooleanExtra("bTb1Checked",true);
+            bTb2checked = data_back.getBooleanExtra("bTb2checked",true);
         }
     }
 }
