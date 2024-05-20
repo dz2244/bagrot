@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,7 +13,7 @@ public class bagrot3 extends AppCompatActivity {
     String slMath, slEnglish, sgMath, sgEnglish, sgFirstMegama, sgSecondMegama, sgThirdMegama, nameFirstMegama, nameSecondMegama, nameThirdMegama;
     boolean bTb1Checked, bTb2checked;
     int gLashon, gSafrot, gHistory, gEzrahot, gTanah, lMath, gMath, lEnglish, gEnglish, gFirstMegama, gSecondMegama, gThirdMegama ,gMathWithBonus,gEnglishWithBonus,gFirstMegamaWithBonus,gSecondMegamaWithBonus,gThirdMegamaWithBonus;
-    double sum1;
+    double sum1,avg1,avg2,avg3,avg4,avg5,avg6,avg7;
     String sUserName;
 
     @Override
@@ -45,6 +44,7 @@ public class bagrot3 extends AppCompatActivity {
         sUserName = si.getStringExtra("userName");
 
         displayGrades();
+        calculateAvg():
     }
 
     private void initViews() {
@@ -66,6 +66,10 @@ public class bagrot3 extends AppCompatActivity {
             }
         }
         return grade;
+    }
+    private void calculateAvg()
+    {
+       avg1 = sum1 + gMath*lMath + gEnglish*lEnglish+ gFirstMegama*5 +gSecondMegama*5 )/
     }
 
     private void displayGrades() {
