@@ -42,9 +42,9 @@ public class bagrot3 extends AppCompatActivity {
         gTanah = si.getIntExtra("Tanah", 0);
         sum1 = si.getDoubleExtra("sum1", 0);
         sUserName = si.getStringExtra("userName");
-
+        sum1 = 2*gLashon + 2*gEzrahot + 2*gSafrot + 2 * gHistory + 2*gTanah;
         displayGrades();
-        calculateAvg():
+        calculateAvg();
     }
 
     private void initViews() {
@@ -69,7 +69,27 @@ public class bagrot3 extends AppCompatActivity {
     }
     private void calculateAvg()
     {
-       avg1 = sum1 + gMath*lMath + gEnglish*lEnglish+ gFirstMegama*5 +gSecondMegama*5 )/
+        StringBuilder avgBuilder = new StringBuilder();
+        avg1 = (sum1 + (gMath+30)*lMath + (gEnglish+30)*lEnglish + (gFirstMegama+20)*5)/25;
+        avg2 = (sum1 + (gMath+30)*lMath + (gEnglish+30)*lEnglish + (gFirstMegama+20)*5)/25;
+        avg3 = (sum1 + (gMath+30)*lMath + (gEnglish+30)*lEnglish + (gFirstMegama+20)*5)/25;
+        avg4 = (sum1 + (gMath+30)*lMath + (gEnglish+30)*lEnglish + (gFirstMegama+20)*5 + (gFirstMegama+20)*5)/30;
+        avg5 = (sum1 + (gMath+30)*lMath + (gEnglish+30)*lEnglish + (gFirstMegama+20)*5 + (gFirstMegama+20)*5)/30;
+        avg6 = (sum1 + (gMath+30)*lMath + (gEnglish+30)*lEnglish + (gFirstMegama+20)*5 + (gFirstMegama+20)*5)/30;
+        avg7 = (sum1 + (gMath+30)*lMath + (gEnglish+30)*lEnglish + (gFirstMegama+20)*5 + (gFirstMegama+20)*5 + (gFirstMegama+20)*5)/35;
+
+        avgBuilder.append("avg1:\t").append(avg1 + "\n");
+        avgBuilder.append("avg2:\t").append(avg2+ "\n");
+        avgBuilder.append("avg3:\t").append(avg3+ "\n");
+        avgBuilder.append("avg4:\t").append(avg4+ "\n");
+        avgBuilder.append("avg5:\t").append(avg5+ "\n");
+        avgBuilder.append("avg6:\t").append(avg6+ "\n");
+        avgBuilder.append("avg7:\t").append(avg7+ "\n");
+
+        sumOfGrades.setText(avgBuilder.toString());
+
+        double highestAverage = Math.max(avg1, Math.max(avg2, Math.max(avg3, Math.max(avg4, Math.max(avg5, Math.max(avg6, avg7))))));
+        bestSum.setText("the best avg is : " +highestAverage);
     }
 
     private void displayGrades() {
@@ -89,6 +109,7 @@ public class bagrot3 extends AppCompatActivity {
         gSecondMegamaWithBonus = bTb1Checked ? gSecondMegama + 20 : gSecondMegama;
         gThirdMegamaWithBonus = bTb2checked ? gThirdMegama + 20 : gThirdMegama;
 
+        gradesBuilder.append("your name is:   ").append(sUserName + "\n");
         gradesBuilder.append("lashon:").append("\t").append("Level ").append("2").append("\tGrade: ").append(gLashon).append("\tbonus: ").append(gLashon).append("\n");
         gradesBuilder.append("safrot:").append("\t").append("Level ").append("2").append("\tGrade: ").append(gSafrot).append("\tbonus: ").append(gSafrot).append("\n");
         gradesBuilder.append("history:").append("\t").append("Level ").append("2").append("\tGrade: ").append(gHistory).append("\tbonus: ").append(gHistory).append("\n");

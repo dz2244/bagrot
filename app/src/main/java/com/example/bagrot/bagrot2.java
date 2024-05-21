@@ -129,15 +129,14 @@ public class bagrot2 extends AppCompatActivity {
         gSecondMegama = bTb1Checked ? Integer.parseInt(sgSecondMegama) : -1;
         gThirdMegama = bTb2checked ? Integer.parseInt(sgThirdMegama) : -1;
 
-        if (gMath < 0 || gMath > 100 || gEnglish < 0 || gEnglish > 100 ||
-                gFirstMegama < 0 || gFirstMegama > 100 ||
+        if (gMath < 0 || gMath > 100 || gEnglish < 0 || gEnglish > 100 || gFirstMegama < 0 || gFirstMegama > 100 ||
                 (gSecondMegama != -1 && (gSecondMegama < 0 || gSecondMegama > 100)) || (gThirdMegama != -1 && (gThirdMegama < 0 || gThirdMegama > 100))) {
             Toast.makeText(this, "Please enter realistic grades (0-100)", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        lMath = Integer.parseInt(sgMath);
-        lEnglish = Integer.parseInt(sgEnglish);
+        lMath = Integer.parseInt(slMath);
+        lEnglish = Integer.parseInt(slMath);
 
         if (lMath < 3 || lMath > 5 || lEnglish < 3 || lEnglish > 5) {
             Toast.makeText(this, "Please enter levels between 3 and 5", Toast.LENGTH_SHORT).show();
